@@ -7,7 +7,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/content'], function(
 		render: function() {
 			var contentObject = {
 				header1: "Hello, world!",
-				header2: "Hej, världen!"
+				header2: "Hej, världen!",
+				author: "PER /\\/\\"
 			};
 			this.$el.html(this.template(contentObject));
 			return this;

@@ -1,4 +1,3 @@
-
 console.log("LOADING main.js");
 
 require.config({
