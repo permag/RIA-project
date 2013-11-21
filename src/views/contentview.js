@@ -1,9 +1,12 @@
 console.log("LOADING contentview.js");
 
-define(['backbone', 'jquery', 'underscore', 'jade!templates/content'], function(Backbone, $, _, template) {
+define(['backbone', 'jquery', 'underscore', 'jade!templates/content'], 
+	function(Backbone, $, _, template) {
 	return Backbone.View.extend({
 		template: template,
-		initialize: function(o) {},
+		initialize: function(o) {
+			// ...
+		},
 		render: function() {
 			var contentObject = {
 				header1: "Hello, world!",

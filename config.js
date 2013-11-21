@@ -1,4 +1,4 @@
-console.log("LOADING main.js");
+console.log("LOADING config.js");
 
 require.config({
 	paths: {
