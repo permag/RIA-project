@@ -1,6 +1,6 @@
 console.log("LOADING app.js");
 
-define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/contentview'],
+define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/contentview'],
 	function(Backbone, MainView, NavView, ContentView) {
 		return {
 			start: function() {
