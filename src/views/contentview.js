@@ -14,7 +14,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/content', 'src/colle
                     return that;
                 }
             });
-		}//,
+        }
+        
         /*render: function() {
             console.log("2: ");
             //console.log(this.options.contentModel.getContent())
