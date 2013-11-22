@@ -1,19 +1,14 @@
 console.log("LOADING contentview.js");
 
 define(['backbone', 'jquery', 'underscore', 'jade!templates/content'], 
-	function(Backbone, $, _, template) {
+	function(Backbone, $, _, template, model) {
 	return Backbone.View.extend({
 		template: template,
 		initialize: function(o) {
-			// ...
+			this.options = o;
 		},
 		render: function() {
-			var contentObject = {
-				header1: "Hello, world!",
-				header2: "Hej, världen!",
-				author: "PER /\\/\\"
-			};
-			this.$el.html(this.template(contentObject));
+			this.$el.html(this.template(this.options.contentModel.getContent()));
 			return this;
 		}
 	});
