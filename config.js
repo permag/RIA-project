@@ -4,6 +4,7 @@ require.config({
 	paths: {
 		//
 		jade: 'lib/require/load_jade-v0.27.6',
+		json: 'lib/require/load_json-v0.3.1',
 		// dirs
 		templates: 'templates',
 		//

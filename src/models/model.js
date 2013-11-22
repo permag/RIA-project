@@ -3,16 +3,16 @@ console.log("LOADING contentmodel.js");
 define(['backbone'], function(Backbone) {
     return Backbone.Model.extend({
         initialize: function(o) {
-            // ...
-        }/*,
-        getContent: function() {
+            // ...  
+        },
+        getData: function() {
             return {
-                phase1: {
+                values: {
                     header1: "Hello, world!",
                     header2: "Hej, världen!",
                     author: "PER /\\/\\"
                 }
             };
-        }*/
+        }
     });
 });
