@@ -4,8 +4,8 @@ define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/conten
 	function(Backbone, MainView, NavView, ContentView, FooterView, ContentModel) {
 	return {
 		start: function() {
-            var contentModel = new ContentModel();
-		    var navView = new NavView(),
+			var contentModel = new ContentModel();
+			var navView = new NavView(),
 				contentView = new ContentView({contentModel: contentModel}),
 				footerView = new FooterView(),
 				mainView = new MainView({

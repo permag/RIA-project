@@ -14,8 +14,8 @@ require.config({
 		'bb-rel': 'lib/backbone/backbone-relational-v0.7.1',
 		'bb-loc': 'lib/backbone/backbone-localstorage-v1.1.6',
 		backbone: 'lib/backbone/backbone-module',
-        underscore: 'lib/underscore/underscore-module'
-    },
+		underscore: 'lib/underscore/underscore-module'
+	},
 	map: {
 		'*': { 'jquery': 'lib/jquery/jquery-module'},
 		'lib/jquery/jquery-module': { 'jquery': 'jquery' }
