@@ -1,6 +1,6 @@
 console.log("LOADING contentview.js");
 
-define(['backbone', 'jquery', 'underscore', 'jade!templates/content', 'src/collections/contentcollection'], 
+define(['backbone', 'jquery', 'underscore', 'jade!templates/content', 'js/collections/contentcollection'], 
 	function(Backbone, $, _, template, ContentCollection) {
 	return Backbone.View.extend({
 		template: template,

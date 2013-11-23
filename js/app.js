@@ -1,6 +1,6 @@
 console.log("LOADING app.js");
 
-define(['backbone', 'src/router'],
+define(['backbone', 'js/router'],
 	function(Backbone, Router) {
 	return {
 		start: function() {

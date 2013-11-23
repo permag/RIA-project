@@ -1,7 +1,7 @@
 console.log("LOADING router.js");
 
-define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/contentview', 
-        'src/views/footerview', 'src/models/contentmodel'],
+define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/contentview', 
+        'js/views/footerview', 'js/models/contentmodel'],
 	function(Backbone, MainView, NavView, ContentView, FooterView, ContentModel) {
     return Backbone.Router.extend({
 		routes: {

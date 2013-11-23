@@ -33,6 +33,6 @@ require.config({
 });
 
 
-require(['src/app'], function(App) { 
+require(['js/app'], function(App) { 
 	App.start(); 
 });
