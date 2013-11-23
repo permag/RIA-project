@@ -27,8 +27,9 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/contentvi
 		hej: function(id) {
             if (id) {
                 alert(id);
-                this.index();
+                //this.index();
             }
+            return "hej";
 		}
 	});
 });
