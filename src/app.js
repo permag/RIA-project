@@ -6,14 +6,14 @@ define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/conten
 		start: function() {
 			var contentModel = new ContentModel();
 			var navView = new NavView(),
-				contentView = new ContentView({contentModel: contentModel}),
-				footerView = new FooterView(),
-				mainView = new MainView({
-					el: '#main', 
-					navView: navView, 
-					contentView: contentView,
-					footerView: footerView
-				});
+			contentView = new ContentView({contentModel: contentModel}),
+			footerView = new FooterView(),
+			mainView = new MainView({
+				el: '#main', 
+				navView: navView, 
+				contentView: contentView,
+				footerView: footerView
+			});
 			mainView.render();
 			Backbone.history.start();
 		}
