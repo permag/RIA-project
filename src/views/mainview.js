@@ -8,9 +8,9 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main'],
 			this.options = o;
 		},
 		render: function() {
-			this.$el.html(template({someThing: 'someValue'}));
+			this.$el.html(this.template({someThing: 'someValue'}));
 			this.$('#nav').append(this.options.navView.render().el);
-			this.$('#content').append(this.options.contentView.render().el);
+			this.$('#content').append(this.options.contentView.el);  // renders on init
 			this.$('#footer').append(this.options.footerView.render().el);
 			return this;
 		}

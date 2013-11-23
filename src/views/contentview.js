@@ -4,24 +4,21 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/content', 'src/colle
 	function(Backbone, $, _, template, ContentCollection) {
 	return Backbone.View.extend({
 		template: template,
+		data: null,
 		initialize: function(o) {
 			var that = this;
 			this.options = o;
-			this.coll = new ContentCollection();
-			this.coll.fetch({
+			this.collection = new ContentCollection();
+			this.collection.fetch({
 				success: function(collection, response) {
-					that.$el.html(template(collection.toJSON()[0]));
-					return that;
+					that.data = collection.toJSON()[0];
+					that.render();
 				}
 			});
+		},
+		render: function() {
+            this.$el.html(this.template(this.data));
+            return this;
 		}
-		
-		/*render: function() {
-			console.log("2: ");
-			//console.log(this.options.contentModel.getContent())
-			//this.$el.html(this.template(this.options.contentModel.getContent()));
-			this.$el.html(this.template(data));
-			return this;
-		}*/
 	});
 });
