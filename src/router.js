@@ -5,7 +5,8 @@ define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/conten
 	function(Backbone, MainView, NavView, ContentView, FooterView, ContentModel) {
     return Backbone.Router.extend({
 		routes: {
-            '': 'index'
+            '': 'index',
+            'hej/:id': 'hej'
         },
 		initialize: function(o) {
 			// ...
@@ -22,6 +23,12 @@ define(['backbone', 'src/views/mainview', 'src/views/navview', 'src/views/conten
 				footerView: footerView
 			});
 			mainView.render();
+		},
+		hej: function(id) {
+            if (id) {
+                alert(id);
+                this.index();
+            }
 		}
 	});
 });
