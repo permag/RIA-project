@@ -48,4 +48,3 @@ require(['jasmine-html', 'test/speclist'], function(jasmine) {
 
 	jasmineEnv.execute();
 });
-

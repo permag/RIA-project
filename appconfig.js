@@ -32,7 +32,6 @@ require.config({
 	}
 });
 
-
 require(['js/app'], function(App) { 
 	App.start(); 
 });
