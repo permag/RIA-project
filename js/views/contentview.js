@@ -17,8 +17,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/content', 'js/collec
 			});
 		},
 		render: function() {
-            this.$el.html(this.template(this.data));
-            return this;
+			this.$el.html(this.template(this.data));
+			return this;
 		}
 	});
 });

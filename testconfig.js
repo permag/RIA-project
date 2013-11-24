@@ -31,22 +31,21 @@ require.config({
 		'bb-rel': ['purebackbone', 'pureunderscore'],
 		'bb-loc': ['purebackbone', 'pureunderscore'],
 		
-        jasmine: {
-            exports: 'jasmine'
-        },
-        'jasmine-html': {
-            deps: ['jasmine'],
-            exports: 'jasmine'
-        }
+		jasmine: {
+			exports: 'jasmine'
+		},
+		'jasmine-html': {
+			deps: ['jasmine'],
+			exports: 'jasmine'
+		}
 	}
 });
 
 require(['jasmine-html', 'test/speclist'], function(jasmine) {
-    var jasmineEnv = jasmine.getEnv();
-    jasmineEnv.updateInterval = 1000;
-    jasmineEnv.addReporter(new jasmine.HtmlReporter());
+	var jasmineEnv = jasmine.getEnv();
+	jasmineEnv.updateInterval = 1000;
+	jasmineEnv.addReporter(new jasmine.HtmlReporter());
 
-    jasmineEnv.execute();
+	jasmineEnv.execute();
 });
-
 

@@ -1,18 +1,18 @@
 console.log("LOADING router.js");
 
 define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/contentview', 
-        'js/views/footerview', 'js/models/contentmodel'],
+		'js/views/footerview', 'js/models/contentmodel'],
 	function(Backbone, MainView, NavView, ContentView, FooterView, ContentModel) {
-    return Backbone.Router.extend({
+	return Backbone.Router.extend({
 		routes: {
-            '': 'index',
-            'hej/:id': 'hej'
-        },
+			'': 'index',
+			'hej/:id': 'hej'
+		},
 		initialize: function(o) {
 			// ...
 		},
 		index: function() {
-            var contentModel = new ContentModel(),
+			var contentModel = new ContentModel(),
 			navView = new NavView(),
 			contentView = new ContentView({contentModel: contentModel}),
 			footerView = new FooterView(),
@@ -25,9 +25,9 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/contentvi
 			mainView.render();
 		},
 		hej: function(id) {
-            if (id) {
-                alert(id);
-            }
+			if (id) {
+				alert(id);
+			}
 		}
 	});
 });
