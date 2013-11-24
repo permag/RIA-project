@@ -1,7 +1,7 @@
 {
     "phase1": {
-        "header1": "Hello, world!",
-        "header2": "Hej, världen!",
-        "author": "PER /\\/\\"
+        "header": "Hello, World!",
+        "message": "To see a world in a grain of sand<br /> And a heaven in a wild flower,<br /> Hold infinity in the palm of your hand,<br /> And eternity in an hour.",
+        "author": "\\/\\/ i l l i a m  B l a k e"
     }
 }
