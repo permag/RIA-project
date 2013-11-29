@@ -1,12 +1,19 @@
+.logo TODO-app
+
 ul.nav.nav-tabs
 	li.active
-		a(href="#") RIA
+		a(href="#") HOME
 	li
 		a(href="#/hej/hej") hej
 	li
 		a(href="#/hej/hejjj") hejjj
-	li
-		a(href="doc") Dokumentation
-	li
-		a(href="test") Tester
-	
+
+	li.dropdown
+		a.dropdown-toggle(data-toggle="dropdown", href="#")
+			| Info
+			span.caret
+		ul.dropdown-menu
+			li
+				a(href="doc") Documentation
+			li
+				a(href="test") Tests

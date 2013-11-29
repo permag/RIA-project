@@ -14,7 +14,8 @@ require.config({
 		'bb-rel': 'lib/backbone/backbone-relational-v0.7.1',
 		'bb-loc': 'lib/backbone/backbone-localstorage-v1.1.6',
 		backbone: 'lib/backbone/backbone-module',
-		underscore: 'lib/underscore/underscore-module'
+		underscore: 'lib/underscore/underscore-module',
+		'bootstrap-js': 'lib/bootstrap/js/bootstrap.min'
 	},
 	map: {
 		'*': { 'jquery': 'lib/jquery/jquery-module'},
@@ -28,7 +29,10 @@ require.config({
 			exports: 'Backbone'
 		},
 		'bb-rel': ['purebackbone', 'pureunderscore'],
-		'bb-loc': ['purebackbone', 'pureunderscore']
+		'bb-loc': ['purebackbone', 'pureunderscore'],
+		'bootstrap-js': {
+			deps: ['jquery']
+		}
 	}
 });
 

@@ -1,0 +1,29 @@
+#nav {
+    margin-top: 7px;
+}
+#nav .logo {
+    float: left;
+    display: inline-block;
+    width: 170px;
+    height: 30px;
+    padding: 0 11px 5px 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5c5c5c;
+}
+#left-menu {
+    float: left;
+    width: 170px;
+    margin-top: 20px;
+}
+#left-menu button {
+    float: right;
+}
+#left-menu ul {
+    float: left;
+    width: 100%;
+}
+#content {
+    float: left;
+    padding: 0 0 0 29px;
+}
