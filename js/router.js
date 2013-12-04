@@ -14,18 +14,18 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			'show_todo': 'show_todo'
 		},
 		initialize: function(o) {
-			// ...
+			this.navView = new NavView();
+			this.leftMenuView = new LeftMenuView();
+			this.footerView = new FooterView();
+			this.mainView = new MainView();
 		},
 		mainRender: function(view) {
-			var navView = new NavView(),
-			leftMenuView = new LeftMenuView(),
-			footerView = new FooterView(),
-			mainView = new MainView({
+			var mainView = new MainView({
 				el: '#main', 
-				navView: navView,
-				leftMenuView: leftMenuView,
+				navView: this.navView,
+				leftMenuView: this.leftMenuView,
 				contentView: view,
-				footerView: footerView
+				footerView: this.footerView
 			});
 			mainView.render();	
 		},
@@ -70,16 +70,19 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 
 
 			//
-			listModel.get('todos').push('todo_1');
-			listModel.get('todos').push('todo_2');
+			listModel.get('todos').push(todo1.get('id'));
+			listModel.get('todos').push(todo2.get('id'));
 			console.log("LENGTH: " + listModel.get('todos').length);
 			console.log("HEHE: " + listModel.get('todos').at(1).get('header'));
 			
 			console.log(listModel.get('todos').pluck('header'))
 			console.log(todo2.get('list').get('name'));
+			console.log("DONE? " + todo1.get('done'));
+			todo1.toggle();
+			console.log("DONE? " + todo1.get('done'));
 			
 			// Render this view
-			this.mainRender(new TodoView({contentModel: todo1}));
+			this.mainRender(new TodoView({contentModel: todo2}));
 
 		}
 	});

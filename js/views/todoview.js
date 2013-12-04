@@ -4,14 +4,16 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/list'],
 	function(Backbone, $, _, template) {
 	return Backbone.View.extend({
 		template: template,
-		data: null,
+		model: null,
 		initialize: function(o) {
 			var self = this;
 			this.options = o;
-			this.data = o.contentModel;
+			this.model = o.contentModel;
+			console.log(this.model.toJSON());
+			this.render();
 		},
 		render: function() {
-			this.$el.html(this.template(this.data));
+			this.$el.html(this.template(this.model.toJSON()));
 			return this;
 		}
 	});

@@ -10,6 +10,10 @@ define(['backbone'], function(Backbone) {
             done: false,
             list: 'list_id'
         },
-        id_Attribute: 'id'
+        idAttribute: 'id',
+        
+        toggle: function() {
+			this.set({'done': !this.get('done')});
+        }
     });
 });

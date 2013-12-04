@@ -1,1 +1,7 @@
-h1 LIST: #{name}
+h2 List: #{list.name}
+h5 Todo: #{header}
+p #{description}
+
+h5 More Todos in this list: (#{list.todos.length})
+each todo in list.todos
+	p #{todo.header}
