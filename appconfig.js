@@ -30,9 +30,7 @@ require.config({
 		},
 		'bb-rel': ['purebackbone', 'pureunderscore'],
 		'bb-loc': ['purebackbone', 'pureunderscore'],
-		'bootstrap-js': {
-			deps: ['jquery']
-		}
+		'bootstrap-js': ['jquery']
 	}
 });
 
