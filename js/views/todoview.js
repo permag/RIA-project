@@ -6,7 +6,6 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/list'],
 		template: template,
 		model: null,
 		initialize: function(o) {
-			var self = this;
 			this.options = o;
 			this.model = o.contentModel;
 			console.log(this.model.toJSON());

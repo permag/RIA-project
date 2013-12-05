@@ -17,21 +17,22 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			this.navView = new NavView();
 			this.leftMenuView = new LeftMenuView();
 			this.footerView = new FooterView();
-			this.mainView = new MainView();
-		},
-		mainRender: function(view) {
-			var mainView = new MainView({
+			this.mainView = new MainView({
 				el: '#main', 
 				navView: this.navView,
 				leftMenuView: this.leftMenuView,
-				contentView: view,
 				footerView: this.footerView
-			});
-			mainView.render();	
+			}).render();
+			// temp 
+			this.listModel, this.todo1, this.todo2, this.todo3 = null;
+		},
+		// Render/update content view only
+		renderContent: function(view) {
+			this.mainView.renderContent(view);
 		},
 		index: function() {
 			// Render this view
-			this.mainRender(new ContentView({contentModel: new ContentModel()}));
+			this.renderContent(new ContentView({contentModel: new ContentModel()}));
 		},
 		hej: function(id) {
 			if (id) {
@@ -39,51 +40,64 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			}
 		},
 		show_lists: function() {
-			this.mainRender(new ListView({listCollection: new ListCollection()}));
+			this.renderContent(new ListView({listCollection: new ListCollection()}));
 		},
 		show_todo: function() {
 			// Testing relations...
 			// New list of todos
-			var listModel = new ListModel({
-				id: 'list_1',
-				name: 'First list',
-				todos: []
-			});
+			if (!this.listModel) {
+				this.listModel = new ListModel({
+					id: 'list_1',
+					name: 'First list',
+					todos: []
+				});
+			}
 			// New todo
-			var todo1 = new TodoModel({
-				id: 'todo_1',
-				header: 'First todo',
-				description: 'Some description...',
-				date: 'undefined',
-				done: false,
-				list: 'list_1'
-			});
+			if (!this.todo1) {
+				this.todo1 = new TodoModel({
+					id: 'todo_1',
+					header: 'First todo',
+					description: 'Some description...',
+					date: 'undefined',
+					done: false,
+					list: 'list_1'
+				});
+			}
 			// Another new todo
-			var todo2 = new TodoModel({
-				id: 'todo_2',
-				header: 'Second todo',
-				description: 'Some description...',
-				date: 'undefined',
-				done: false,
-				list: 'list_1'
-			});
-
+			if (!this.todo2) {
+				this.todo2 = new TodoModel({
+					id: 'todo_2',
+					header: 'Second todo',
+					description: 'Some description...',
+					date: 'undefined',
+					done: false,
+					list: 'list_1'
+				});
+			}
+			// A third new todo
+			if (!this.todo3) {
+				this.todo3 = new TodoModel({
+					id: 'todo_3',
+					header: 'Third todo',
+					description: 'Some description...',
+					date: 'undefined',
+					done: false,
+					list: 'list_1'
+				});
+			}
 
 			//
-			listModel.get('todos').push(todo1.get('id'));
-			listModel.get('todos').push(todo2.get('id'));
-			console.log("LENGTH: " + listModel.get('todos').length);
-			console.log("HEHE: " + listModel.get('todos').at(1).get('header'));
+			console.log("LENGTH: " + this.listModel.get('todos').length);
+			console.log("HEHE: " + this.listModel.get('todos').at(1).get('header'));
 			
-			console.log(listModel.get('todos').pluck('header'))
-			console.log(todo2.get('list').get('name'));
-			console.log("DONE? " + todo1.get('done'));
-			todo1.toggle();
-			console.log("DONE? " + todo1.get('done'));
+			console.log(this.listModel.get('todos').pluck('header'))
+			console.log(this.todo2.get('list').get('name'));
+			console.log("DONE? " + this.todo1.get('done'));
+			this.todo1.toggle();
+			console.log("DONE? " + this.todo1.get('done'));
 			
 			// Render this view
-			this.mainRender(new TodoView({contentModel: todo2}));
-
+			this.renderContent(new TodoView({contentModel: this.todo2}));
 		}
 	});
 });

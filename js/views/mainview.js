@@ -8,11 +8,14 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js
 			this.options = o;
 		},
 		render: function() {
-			this.$el.html(this.template({someThing: 'someValue'}));
+			this.$el.html(this.template());
 			this.$('#nav').append(this.options.navView.render().el);
 			this.$('#left-menu').append(this.options.leftMenuView.render().el);
-			this.$('#content').append(this.options.contentView.el);  // renders on init
 			this.$('#footer').append(this.options.footerView.render().el);
+			return this;
+		},
+		renderContent: function(view) {
+			this.$('#content').html(view.el);  // calls render on init
 			return this;
 		}
 	});
