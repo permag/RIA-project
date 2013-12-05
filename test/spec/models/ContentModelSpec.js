@@ -1,16 +1,12 @@
 
-define(['js/models/contentmodel'], function(Model) {
+define(['js/models/contentmodel'], function(ContentModel) {
 
-	describe('ContentModel', function() {
+	describe('A Content Model', function() {
 		
-		var model = new Model();
+		var content = new ContentModel();
 		
-		it('onePlusOneTest(1, 1)', function() {
-			expect(model.onePlusOneTest(1, 1)).toEqual(2);
-		});
-		
-		it('onePlusOneTest(1, 100)', function() {
-			expect(model.onePlusOneTest(1, 100)).toEqual(101);
+		it('should be able to create object instance', function() {
+			expect(content).toBeDefined();
 		});
 
 	});
