@@ -2,10 +2,9 @@ console.log("LOADING router.js");
 
 define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuview',
 		'js/views/contentview', 'js/views/footerview', 'js/models/contentmodel',
-		'js/collections/listcollection', 'js/views/listview', 'js/models/todomodel',
-		'js/models/listmodel', 'js/views/todoview'],
-	function(Backbone, MainView, NavView, LeftMenuView, ContentView, FooterView, 
-			ContentModel, ListCollection, ListView, TodoModel, ListModel, TodoView) {
+		'js/views/listview', 'js/models/todomodel', 'js/models/listmodel', 'js/views/todoview'],
+		function(Backbone, MainView, NavView, LeftMenuView, ContentView, FooterView, 
+				ContentModel, ListView, TodoModel, ListModel, TodoView) {
 	return Backbone.Router.extend({
 		routes: {
 			'': 'index',
@@ -22,9 +21,8 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 				navView: this.navView,
 				leftMenuView: this.leftMenuView,
 				footerView: this.footerView
-			}).render();
-			// temp 
-			this.listModel, this.todo1, this.todo2, this.todo3 = null;
+			});
+			this.mainView.render();
 		},
 		// Render/update content view only
 		renderContent: function(view) {
@@ -40,12 +38,15 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			}
 		},
 		show_lists: function() {
-			this.renderContent(new ListView({listCollection: new ListCollection()}));
+			this.renderContent(new ListView());
 		},
 		show_todo: function() {
 			// Testing relations...
+			//
+			
+			// Testing relations...
 			// New list of todos
-			if (!this.listModel) {
+/*			if (!this.listModel) {
 				this.listModel = new ListModel({
 					id: 'list_1',
 					name: 'First list',
@@ -86,7 +87,11 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 				});
 			}
 
-			//
+
+			
+			
+			
+			console.log(this.listModel.toJSON());
 			console.log("LENGTH: " + this.listModel.get('todos').length);
 			console.log("HEHE: " + this.listModel.get('todos').at(1).get('header'));
 			
@@ -94,10 +99,10 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			console.log(this.todo2.get('list').get('name'));
 			console.log("DONE? " + this.todo1.get('done'));
 			this.todo1.toggle();
-			console.log("DONE? " + this.todo1.get('done'));
+			console.log("DONE? " + this.todo1.get('done'));*/
 			
 			// Render this view
-			this.renderContent(new TodoView({contentModel: this.todo2}));
+			this.renderContent(new TodoView());
 		}
 	});
 });

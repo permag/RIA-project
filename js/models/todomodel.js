@@ -10,7 +10,6 @@ define(['backbone'], function(Backbone) {
             done: false,
             list: 'list_id'
         },
-        idAttribute: 'id',
         toggle: function() {
 			this.set({'done': !this.get('done')});
         }

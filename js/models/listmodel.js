@@ -1,13 +1,13 @@
 console.log("LOADING ListModel.js");
 
-define(['backbone', 'js/models/todomodel'], function(Backbone, TodoModel) {
+define(['backbone', 'underscore', 'js/models/todomodel', 'js/collections/todocollection'], 
+	function(Backbone, _, TodoModel, TodoCollection) {
     return Backbone.RelationalModel.extend({
         defaults: {
             id: 'list_id',
             name: 'undefined',
             todos: []
         },
-        idAttribute: 'id',
         relations: [{
             type: Backbone.HasMany,
             key: 'todos',
@@ -15,6 +15,12 @@ define(['backbone', 'js/models/todomodel'], function(Backbone, TodoModel) {
             reverseRelation: {
                 key: 'list'
             }
-        }]
+        }],
+        
+		parse: function(response) {
+			return _.extend({}, response, {
+				todos: new TodoCollection(response.todos)
+			});
+		}
     });
 });

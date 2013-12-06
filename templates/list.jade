@@ -1,7 +1,5 @@
-h2 List: #{list.name}
-h5 Todo: #{header}
-p #{description}
+h2 Lists
 
-h5 More Todos in this list: (#{list.todos.length})
-each todo in list.todos
-	p #{todo.header}
+each l, i in data
+	h5 #{i+1}: #{l.name}
+	p Nr of todos: #{l.todos.length}
