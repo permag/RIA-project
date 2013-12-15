@@ -14,13 +14,8 @@ define(['backbone', 'underscore', 'js/models/todomodel', 'js/collections/todocol
             relatedModel: TodoModel,
             reverseRelation: {
                 key: 'list'
+				//includeInJSON: 'id'
             }
-        }],
-        
-		parse: function(response) {
-			return _.extend({}, response, {
-				todos: new TodoCollection(response.todos)
-			});
-		}
+        }]
     });
 });
