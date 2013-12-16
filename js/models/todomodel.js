@@ -1,6 +1,6 @@
 console.log("LOADING TodoModel.js");
 
-define(['backbone'], function(Backbone) {
+define(['backbone', 'js/models/listmodel'], function(Backbone, ListModel) {
 	return Backbone.RelationalModel.extend({
 		defaults: {
 			id: 0,
@@ -11,12 +11,13 @@ define(['backbone'], function(Backbone) {
 			url: '',
 			list: 'list_id'
 		},
-		//localStorage: new Backbone.LocalStorage('todo-store'),
-		initialize: function() {
-			this.set({'url': '#/todo/' + this.get('id')});
+
+		url: '/',
+		initialize: function(o) {
+			this.save({'url': '#/todo/' + this.get('id')});
 		},
 		toggle: function() {
-			this.set({'done': !this.get('done')});
+			this.save({'done': !this.get('done')});
 		}
 	});
 });

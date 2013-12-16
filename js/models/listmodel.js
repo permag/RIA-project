@@ -1,7 +1,7 @@
 console.log("LOADING ListModel.js");
 
-define(['backbone', 'underscore', 'js/models/todomodel', 'js/collections/todocollection'], 
-	function(Backbone, _, TodoModel, TodoCollection) {
+define(['backbone', 'underscore', 'js/models/todomodel'], 
+	function(Backbone, _, TodoModel) {
 	return Backbone.RelationalModel.extend({
 		defaults: {
 			id: 'list_id',
