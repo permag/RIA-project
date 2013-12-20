@@ -13,22 +13,22 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 			var self = this;
 			this.todoId = o.todoId;
 			this.todoColl = o.todoColl;
-			this.model = null;
+			this.todo = null;
 			this.todoColl.fetch({
 				success: function(collection, response) {
-					self.model = collection.get(self.todoId);
+					self.todo = collection.get(self.todoId);
 					self.render();
 				}
 			});
 
-			this.model.on('change:done', this.render, this);
-			this.model.on('remove', function(){
+			this.todo.on('change:done', this.render, this);
+			this.todo.on('remove', function(){
 				window.location.href = '#/todos';
 			});
 		},
 
 		render: function() {
-			this.$el.html(this.template(this.model.toJSON()));	
+			this.$el.html(this.template(this.todo.toJSON()));	
 			return this;
 		},
 
@@ -39,8 +39,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 
 		remove: function(e) {
 			e.preventDefault();
-			this.todoColl.remove(this.model);
-			localStorage.removeItem('todo-store-' + this.model.id)
+			if (confirm('Sure u wanna delete this?')) {
+				this.todoColl.remove(this.todo);
+				localStorage.removeItem('todo-store-' + this.todo.id)
+			}
 		}
 	});
 });

@@ -3,16 +3,17 @@ console.log("LOADING router.js");
 define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuview',
 		'js/views/contentview', 'js/views/footerview', 'js/models/contentmodel', 
 		'js/models/todomodel', 'js/views/todoview', 'js/views/addtodoview', 
-		'js/collections/todocollection', 'js/views/todosview'],
+		'js/collections/todocollection', 'js/views/todosview', 'js/views/edittodoview'],
 		function(Backbone, MainView, NavView, LeftMenuView, ContentView, FooterView, 
 				ContentModel, TodoModel, TodoView, AddTodoView, TodoCollection, 
-				TodosView) {
+				TodosView, EditTodoView) {
 	return Backbone.Router.extend({
 		routes: {
 			'': 'index',
 			'todos': 'list_todos',
 			'todo/:id': 'show_todo',
-			'new': 'newTodo'
+			'new': 'newTodo',
+			'todo/:id/edit': 'editTodo',
 		},
 		initialize: function(o) {
 			this.navView = new NavView();
@@ -42,6 +43,9 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 		},
 		newTodo: function() {
 			this.renderContent(new AddTodoView());
+		},
+		editTodo: function(id) {
+			this.renderContent(new EditTodoView({todoId: id}));
 		}
 	});
 });

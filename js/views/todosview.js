@@ -8,10 +8,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 		initialize: function(o) {
 			var self = this;
 			this.todoColl = o.todoColl;
-			this.data = null;
+			this.todos = null;
 			this.todoColl.fetch({
 				success: function(collection, response) {
-					self.data = collection;
+					self.todos = collection;
 					self.render();
 				}
 			});
@@ -20,11 +20,12 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 		},
 
 		render: function() {
-			this.$el.html(this.template(this.todos()));
+			this.$el.html(this.template(this.getTodos()));
 			return this;
 		},
-		todos: function() {
-			return {todos: this.data.toJSON()}
+		
+		getTodos: function() {
+			return {todos: this.todos.toJSON()}
 		}
 	});
 });

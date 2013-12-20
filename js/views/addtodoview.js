@@ -8,10 +8,9 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 		events: {
 			'click #new_button': 'add'
 		},
+
 		initialize: function(o) {
 			var self = this;
-			this.options = o;
-			this.data = null;
 			this.todoColl = new TodoColl();
 			this.todoColl.fetch({
 				success: function(collection, response) {
@@ -19,10 +18,12 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 				}
 			});
 		},
+
 		render: function() {
 			this.$el.html(this.template(this));
 			return this;
 		},
+
 		add: function() {
 			var length = this.todoColl.length;
 			var newId = 1;
