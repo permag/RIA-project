@@ -1,16 +1,16 @@
 console.log("LOADING router.js");
 
 define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuview',
-		'js/views/contentview', 'js/views/footerview', 'js/models/contentmodel',
-		'js/views/listview', 'js/models/todomodel', 'js/models/listmodel', 'js/views/todoview',
-		'js/views/addtodoview', 'js/collections/listcollection', 'js/collections/todocollection'],
+		'js/views/contentview', 'js/views/footerview', 'js/models/contentmodel', 
+		'js/models/todomodel', 'js/views/todoview', 'js/views/addtodoview', 
+		'js/collections/todocollection', 'js/views/todosview'],
 		function(Backbone, MainView, NavView, LeftMenuView, ContentView, FooterView, 
-				ContentModel, ListView, TodoModel, ListModel, TodoView, AddTodoView,
-				ListCollection, TodoCollection) {
+				ContentModel, TodoModel, TodoView, AddTodoView, TodoCollection, 
+				TodosView) {
 	return Backbone.Router.extend({
 		routes: {
 			'': 'index',
-			'lists': 'show_lists',
+			'todos': 'list_todos',
 			'todo/:id': 'show_todo',
 			'new': 'newTodo'
 		},
@@ -24,20 +24,7 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 				leftMenuView: this.leftMenuView,
 				footerView: this.footerView
 			});
-			
-			// testing
-			this.listColl = new ListCollection();
-			if (!localStorage.getItem('todo-list-store')) {
-				this.listModel = new ListModel({
-					id: 'list_1',
-					name: 'First list',
-					todos: []
-				});
-				this.listColl.create(this.listModel);
-			}
-			this.listColl.fetch();
 			this.mainView.render();
-
 		},
 		// Render/update content view only
 		renderContent: function(view) {
@@ -47,14 +34,14 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 			// Render this view
 			this.renderContent(new ContentView({contentModel: new ContentModel()}));
 		},
-		show_lists: function() {
-			this.renderContent(new ListView({listColl: this.listColl}));
+		list_todos: function() {
+			this.renderContent(new TodosView({todoColl: new TodoCollection()}));
 		},
 		show_todo: function(id) {
 			this.renderContent(new TodoView({todoColl: new TodoCollection(), todoId: id}));
 		},
 		newTodo: function() {
-			this.renderContent(new AddTodoView({listModel: this.listColl.at(0)}));
+			this.renderContent(new AddTodoView());
 		}
 	});
 });

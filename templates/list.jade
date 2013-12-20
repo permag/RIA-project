@@ -1,9 +1,0 @@
-h2 Lists
-
-each l, i in data
-	h5 #{i+1}: #{l.name}
-	h6 Nr of todos: #{l.todos.length}
-	each todo in l.todos
-		ul
-			li 
-				a(href='#{todo.url}') Todo: #{todo.header}

@@ -1,0 +1,6 @@
+h1 Todos
+p #{todos.t}
+each todo in todos
+	p
+		a(href='#{todo.url}') #{todo.header} 
+		| #{todo.date}

@@ -1,10 +1,13 @@
 h1 #{header}
 p #{description}
-p belongs to #{list.name}
 if done == true
-	p Done
+	p 
+		a(href='#')#click_toggle Done
 else
 	p
 		a(href='#')#click_toggle Active
 
 p #{done}
+
+p
+	a(href='#')#click_remove Remove

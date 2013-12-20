@@ -1,23 +1,22 @@
 console.log("LOADING TodoModel.js");
 
-define(['backbone', 'js/models/listmodel'], function(Backbone, ListModel) {
-	return Backbone.RelationalModel.extend({
+define(['backbone'], function(Backbone) {
+	return Backbone.Model.extend({
 		defaults: {
 			id: 0,
 			header: 'undefined',
 			description: 'undefined',
 			date: 'undefined',
 			done: false,
-			url: '',
-			list: 'list_id'
+			url: ''
 		},
 
-		url: '/',
-		initialize: function(o) {
-			this.save({'url': '#/todo/' + this.get('id')});
+		initialize: function() {
+			this.save({url: '#/todo/' + this.get('id')});
 		},
+
 		toggle: function() {
-			this.save({'done': !this.get('done')});
+			this.save({done: !this.get('done')});
 		}
 	});
 });

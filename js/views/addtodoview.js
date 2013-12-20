@@ -12,7 +12,6 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 			var self = this;
 			this.options = o;
 			this.data = null;
-			this.list = o.listModel;
 			this.todoColl = new TodoColl();
 			this.todoColl.fetch({
 				success: function(collection, response) {
@@ -28,19 +27,17 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 			var length = this.todoColl.length;
 			var newId = 1;
 			if (length > 0) {
-				newId = this.todoColl.at(this.todoColl.length-1).get('id') + 1;
+				newId = this.todoColl.at(length-1).get('id') + 1;
 			}
 			var todo = {
 				id: newId,
 				header: $.trim($('#new_todo').val()),
 				description: $.trim($('#new_description').val()),
 				date: new Date(),
-				done: false,
-				list: this.list.get('id')
+				done: false
 			};
 			this.todoColl.create(todo);
-			this.list.save({todos: this.list.get('todos').push(newId)});
-			window.location.href = '#/lists';
+			window.location.href = '#/todo/'+newId;
 		}
 	});
 });
