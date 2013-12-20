@@ -12,7 +12,7 @@ define(['backbone'], function(Backbone) {
 		},
 		url: 'data/empty.json',
 		
-		initialize: function() {
+		initialize: function(o) {
 			this.save({url: '#/todo/' + this.get('id')});
 		},
 

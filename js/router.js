@@ -2,10 +2,10 @@ console.log("LOADING router.js");
 
 define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuview',
 		'js/views/contentview', 'js/views/footerview', 'js/models/contentmodel', 
-		'js/models/todomodel', 'js/views/todoview', 'js/views/addtodoview', 
-		'js/collections/todocollection', 'js/views/todosview', 'js/views/edittodoview'],
+		'js/views/todoview', 'js/views/addtodoview', 'js/collections/todocollection', 
+		'js/views/todosview', 'js/views/edittodoview'],
 		function(Backbone, MainView, NavView, LeftMenuView, ContentView, FooterView, 
-				ContentModel, TodoModel, TodoView, AddTodoView, TodoCollection, 
+				ContentModel, TodoView, AddTodoView, TodoCollection, 
 				TodosView, EditTodoView) {
 	return Backbone.Router.extend({
 		routes: {
