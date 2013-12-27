@@ -2,12 +2,12 @@ h1 #{header}
 p #{description}
 if done == true
 	p 
-		a(href='#')#click_toggle Done
+		button#click_toggle.btn.btn-lg.active Completed
 else
 	p
-		a(href='#')#click_toggle Active
+		button#click_toggle.btn-lg.btn-primary Active
 
-p
+button.btn.btn-xs
 	a(href='#{url}/edit') Edit
-p
-	a(href='#')#click_remove Remove
+span 
+button#click_remove.btn.btn-danger.btn-xs Remove
