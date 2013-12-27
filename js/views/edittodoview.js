@@ -28,6 +28,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/editform',
 		},
 
 		edit: function() {
+			if ($.trim($('#edit_todo').val()) == '') {
+				alert('Todo cannot be blank.');
+				return;
+			}
 			this.todoColl.get(this.todoId).save({
 				header: $.trim($('#edit_todo').val()),
 				description: $.trim($('#edit_description').val())

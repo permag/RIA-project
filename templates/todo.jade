@@ -1,11 +1,14 @@
+
 h1 #{header}
+i #{date}
 p #{description}
-if done == true
+if done
 	p 
 		button#click_toggle.btn.btn-lg.active Completed
 else
 	p
 		button#click_toggle.btn-lg.btn-primary Active
+
 
 button.btn.btn-xs
 	a(href='#{url}/edit') Edit

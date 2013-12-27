@@ -27,3 +27,14 @@
     float: left;
     padding: 0 0 0 29px;
 }
+#new_todo, #edit_todo {
+    width: 300px;
+}
+#new_description, #edit_description {
+    width: 300px;
+    height: 100px;
+}
+#new_button, #edit_button {
+    width: 100px;
+    float: right;
+}

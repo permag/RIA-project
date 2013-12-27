@@ -36,6 +36,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 		// Creates a new todo id by incrementing the last added todo's id.
 		// Adds todo to todo collection and redirects to the newly created todo.
 		add: function() {
+			if ($.trim($('#new_todo').val()) == '') {
+				alert('Todo cannot be blank.');
+				return;
+			}
 			var length = this.todoColl.length;
 			var newId = 1;
 			if (length > 0) {

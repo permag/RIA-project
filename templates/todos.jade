@@ -1,20 +1,20 @@
-h1 Todos
-
 if todos.length < 1
 	p No todos!
 else
 	if isCompleted
-		each todo in todos
-			ul
+		h2 Completed Todos
+		ul
+			each todo, i in todos
 				if todo.done
-					li 
-						i
-							a(href='#{todo.url}') #{todo.header} 
-							| #{todo.date}
-	else	
-		each todo in todos
-			ul
-				if todo.done == false
 					li
-						a(href='#{todo.url}') #{todo.header} 
-						| #{todo.date}
+						i
+							a(href='#{todo.url}') #{todo.header}
+							|  #{todo.date}
+	else
+		h2 Active Todos	
+		ul
+			each todo, i in todos
+				if !todo.done
+					li
+						a(href='#{todo.url}') #{todo.header}
+						|  #{todo.date}
