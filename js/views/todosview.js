@@ -10,6 +10,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 		// and calls the render function.
 		initialize: function(o) {
 			var self = this;
+			this.isCompleted = o.completed;
 			this.todoColl = o.todoColl;
 			this.todos = null;
 			this.todoColl.fetch({
@@ -20,6 +21,16 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 			});
 
 			this.todoColl.on('change', this.render, this);
+
+			var active = $('#list-active');
+			var completed = $('#list-completed');
+			if (this.isCompleted) {
+				active.removeClass('active');
+				completed.addClass('active');
+			} else {
+				completed.removeClass('active');
+				active.addClass('active');
+			}
 		},
 
 		// Render template
@@ -31,7 +42,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 		// Get all todos from collection and return an object
 		// that is being used to get the todo data in the jade template.
 		getTodos: function() {
-			return {todos: this.todos.toJSON()}
+			return {
+				todos: this.todos.toJSON(),
+				isCompleted: this.isCompleted
+			}
 		}
 	});
 });

@@ -11,8 +11,9 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 		// Routes being used in this application.
 		routes: {
 			'': 'index',
-			'todos': 'list_todos',
-			'todo/:id': 'show_todo',
+			'todos': 'listTodos',
+			'todos/completed': 'listCompletedTodos',
+			'todo/:id': 'showTodo',
 			'new': 'newTodo',
 			'todo/:id/edit': 'editTodo',
 		},
@@ -41,17 +42,23 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 		// Index page route when base page is being called.
 		// Model is passed into view as parameter.
 		index: function() {
-			this.renderContent(new ContentView({contentModel: new ContentModel()}));
+			this.listTodos();
+			// this.renderContent(new ContentView({contentModel: new ContentModel()}));
 		},
 
-		// Route for listing all todos.
+		// Route for listing all active todos.
 		// Collection is passed into view as parameter.
-		list_todos: function() {
-			this.renderContent(new TodosView({todoColl: new TodoCollection()}));
+		listTodos: function() {
+			this.renderContent(new TodosView({todoColl: new TodoCollection(), completed: false}));
+		},
+
+		// Route for listing completed todos.
+		listCompletedTodos: function() {
+			this.renderContent(new TodosView({todoColl: new TodoCollection(), completed: true}));
 		},
 
 		// Route for displaying one specific todo, by passing id of todo in the url as function parameter.
-		show_todo: function(id) {
+		showTodo: function(id) {
 			this.renderContent(new TodoView({todoColl: new TodoCollection(), todoId: id}));
 		},
 
