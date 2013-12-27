@@ -2,9 +2,12 @@ h2 Add
 	form
 		p
 			label Todo
-			input#new_todo(type='text')
+			input#new_todo.form-control(type='text')
 		p
 			label Description
-			textarea#new_description
+			textarea#new_description.form-control
 		p
-			input#new_button(type='button', value='Add')
+			input#new_button.btn(type='button', value='Add')
+
+script
+	$('#new_todo').focus()

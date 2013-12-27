@@ -2,9 +2,9 @@ h2 Edit
 	form
 		p
 			label Todo
-			input#edit_todo(type='text', value='#{header}')
+			input#edit_todo.form-control(type='text', value='#{header}')
 		p
 			label Description
-			textarea#edit_description #{description}
+			textarea#edit_description.form-control #{description}
 		p
-			input#edit_button(type='button', value='Edit')
+			input#edit_button.btn(type='button', value='Edit')
