@@ -1,7 +1,7 @@
 
 define(['backbone', 'js/collections/todocollection', 'js/models/todomodel'], 
 	function(Backbone, TodoCollection, TodoModel) {
-	
+
 	// Fetch collection of todos
 	var todoColl = new TodoCollection();
 	todoColl.localStorage = new Backbone.LocalStorage('TEST-todo-store');
@@ -20,13 +20,13 @@ define(['backbone', 'js/collections/todocollection', 'js/models/todomodel'],
 
 		it('should be able to contain items of TodoModel instance', function() {
 			var todo = {
-				id: 'test_1',
+				id: 1,
 				header: 'Test: header',
 				description: 'Test: description'
 			};
 			todoColl.create(todo);
 
-			expect(todoColl.get('test_1') instanceof TodoModel).toBeTruthy();
+			expect(todoColl.get(1) instanceof TodoModel).toBeTruthy();
 		});
 
 	});

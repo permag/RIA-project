@@ -1,21 +1,24 @@
-if todos.length < 1
-	h2 Todos
-	p No todos!
-else
-	if isCompleted
-		h2 Completed Todos
-		ul
-			each todo, i in todos
-				if todo.done
-					li
-						i
-							a(href='#{todo.url}') #{todo.header}
-							|  #{todo.date}
-	else
-		h2 Active Todos	
-		ul
-			each todo, i in todos
-				if !todo.done
-					li
+-var hasItems = false
+
+if isCompleted
+	h2 Completed Todos
+	ul
+		each todo, i in todos
+			if todo.done
+				-hasItems = true
+				li
+					i
 						a(href='#{todo.url}') #{todo.header}
 						|  #{todo.date}
+else
+	h2 Active Todos	
+	ul
+		each todo, i in todos
+			if !todo.done
+				-hasItems = true
+				li
+					a(href='#{todo.url}') #{todo.header}
+					|  #{todo.date}
+
+if !hasItems
+	i Not even one little Todo.
