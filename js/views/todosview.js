@@ -7,7 +7,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 
 		// Initialize function.
 		// Get fetched collection from router 
-		// and calls the render function.
+		// and call the render function.
 		initialize: function(o) {
 			this.isCompleted = o.completed;
 			this.todoColl = o.todoColl;

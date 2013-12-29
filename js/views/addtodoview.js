@@ -12,7 +12,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 		},
 
 		//# Initialize function
-		// Call render function once collection is fetched.
+		// Call render function.
 		initialize: function(o) {
 			this.todoColl = o.todoColl;
 			this.render();
