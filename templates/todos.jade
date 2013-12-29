@@ -1,6 +1,15 @@
 -var hasItems = false
 
-if isCompleted
+if !isCompleted
+	h2 Todos	
+	ul
+		each todo, i in todos
+			if !todo.done
+				-hasItems = true
+				li
+					a(href='#{todo.url}') #{todo.header}
+					|  #{todo.date}
+else
 	h2 Completed Todos
 	ul
 		each todo, i in todos
@@ -10,15 +19,6 @@ if isCompleted
 					i
 						a(href='#{todo.url}') #{todo.header}
 						|  #{todo.date}
-else
-	h2 Active Todos	
-	ul
-		each todo, i in todos
-			if !todo.done
-				-hasItems = true
-				li
-					a(href='#{todo.url}') #{todo.header}
-					|  #{todo.date}
 
 if !hasItems
-	i Not even one little Todo.
+	i None. Not even one little Todo.
