@@ -6,19 +6,12 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 		template: template,
 
 		// Initialize function.
-		// Fetches all todos from localStorage into the collection
+		// Get fetched collection from router 
 		// and calls the render function.
 		initialize: function(o) {
-			var self = this;
 			this.isCompleted = o.completed;
 			this.todoColl = o.todoColl;
-			this.todos = null;
-			this.todoColl.fetch({
-				success: function(collection, response) {
-					self.todos = collection;
-					self.render();
-				}
-			});
+			this.todos = o.todos;
 
 			this.todoColl.on('change', this.render, this);
 
@@ -31,6 +24,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todos'],
 				completed.removeClass('active');
 				active.addClass('active');
 			}
+			
+			this.render()
 		},
 
 		// Render template

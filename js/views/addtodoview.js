@@ -12,16 +12,10 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/addform',
 		},
 
 		//# Initialize function
-		// Fetch todos to determine the new todo id in add function.
 		// Call render function once collection is fetched.
 		initialize: function(o) {
-			var self = this;
-			this.todoColl = new TodoColl();
-			this.todoColl.fetch({
-				success: function(collection, response) {
-					self.render();
-				}
-			});
+			this.todoColl = o.todoColl;
+			this.render();
 		},
 
 		//# Render function

@@ -15,21 +15,16 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 		// When chaning the todo done status, template automatically re-renders.
 		// If todo is removed, page redirects to list of todos.
 		initialize: function(o) {
-			var self = this;
 			this.todoId = o.todoId;
 			this.todoColl = o.todoColl;
-			this.todo = null;
-			this.todoColl.fetch({
-				success: function(collection, response) {
-					self.todo = collection.get(self.todoId);
-					self.render();
-				}
-			});
+			this.todo = o.todos.get(this.todoId);
 
 			this.todo.on('change:done', this.render, this);
 			this.todo.on('remove', function(){
 				window.location.href = '#/todos';
 			});
+			
+			this.render();
 		},
 
 		// Render template

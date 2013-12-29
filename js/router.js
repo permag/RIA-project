@@ -31,6 +31,16 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 				footerView: this.footerView
 			});
 			this.mainView.render();
+
+			// Fetch collection of todos
+			this.todoColl = new TodoCollection();
+			this.todos = null;
+			var self = this;
+			this.todoColl.fetch({
+				success: function(collection, response) {
+					self.todos = collection;
+				}
+			});
 		},
 
 		// Render/update content view only, when chaning content in the app.
@@ -49,27 +59,27 @@ define(['backbone', 'js/views/mainview', 'js/views/navview', 'js/views/leftmenuv
 		// Route for listing all active todos.
 		// Collection is passed into view as parameter.
 		listTodos: function() {
-			this.renderContent(new TodosView({todoColl: new TodoCollection(), completed: false}));
+			this.renderContent(new TodosView({todoColl: this.todoColl, todos: this.todos, completed: false}));
 		},
 
 		// Route for listing completed todos.
 		listCompletedTodos: function() {
-			this.renderContent(new TodosView({todoColl: new TodoCollection(), completed: true}));
+			this.renderContent(new TodosView({todoColl: this.todoColl, todos: this.todos, completed: true}));
 		},
 
 		// Route for displaying one specific todo, by passing id of todo in the url as function parameter.
 		showTodo: function(id) {
-			this.renderContent(new TodoView({todoColl: new TodoCollection(), todoId: id}));
+			this.renderContent(new TodoView({todoColl: this.todoColl, todos: this.todos, todoId: id}));
 		},
 
 		// Route for adding new todo.
 		newTodo: function() {
-			this.renderContent(new AddTodoView());
+			this.renderContent(new AddTodoView({todoColl: this.todoColl, todos: this.todos}));
 		},
 
 		// Route for edit specific todo. Id to todo is passed as parameter.
 		editTodo: function(id) {
-			this.renderContent(new EditTodoView({todoId: id}));
+			this.renderContent(new EditTodoView({todoColl: this.todoColl, todos: this.todos, todoId: id}));
 		}
 	});
 });

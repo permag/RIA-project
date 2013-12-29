@@ -11,13 +11,14 @@ define(['backbone'], function(Backbone) {
 			done: false,
 			url: ''
 		},
-		url: 'data/empty.json',
+		url: null,
 		
 		// Initialize function.
 		// When creating new model, createUrl and createDate functions are called,
 		// to create a url to the specific todo, used in the template,
 		// and to format the time and date.
-		initialize: function(o) {
+		initialize: function(o, url) {
+			if (url) this.url = url; else this.url = '../data/empty.json';
 			if (this.get('url') == '' ) {
 				this.createUrl();
 			}
