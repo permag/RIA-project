@@ -1,5 +1,5 @@
 
-define(['js/views/todosview', 'js/collections/todocollection', 'js/models/TodoModel'], 
+define(['js/views/todosview', 'js/collections/todocollection', 'js/models/todomodel'], 
 	function(TodosView, TodoCollection) {
 
 	// Fetch collection of todos
