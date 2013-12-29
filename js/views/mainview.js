@@ -4,9 +4,12 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js
 	function(Backbone, $, _, template) {
 	return Backbone.View.extend({
 		template: template,
+
 		initialize: function(o) {
 			this.options = o;
 		},
+
+		// Create basic app layout
 		render: function() {
 			this.$el.html(this.template());
 			this.$('#nav').append(this.options.navView.render().el);
@@ -14,6 +17,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js
 			this.$('#footer').append(this.options.footerView.render().el);
 			return this;
 		},
+
+		// Render content view only
 		renderContent: function(view) {
 			this.$('#content').html(view.el);  // calls render on init
 			return this;

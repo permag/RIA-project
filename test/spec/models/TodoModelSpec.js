@@ -33,7 +33,7 @@ define(['js/models/todomodel'], function(TodoModel) {
 		}, '../data/empty.json');
 
 		// Test url to todo
-		it('should genereate correct url path', function() {
+		it('should generate correct url path', function() {
 			var id = todo.get('id');
 			var url = todo.get('url');
 			expect('#/todo/'+id).toBe(url);
