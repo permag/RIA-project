@@ -1,7 +1,7 @@
 
 define(['backbone', 'js/collections/todocollection', 'js/models/todomodel'], 
 	function(Backbone, TodoCollection, TodoModel) {
-
+	
 	// Fetch collection of todos
 	var todoColl = new TodoCollection();
 	todoColl.localStorage = new Backbone.LocalStorage('TEST-todo-store');
