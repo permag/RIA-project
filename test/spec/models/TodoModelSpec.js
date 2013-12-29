@@ -6,8 +6,12 @@ define(['js/models/todomodel'], function(TodoModel) {
 
 	describe('A Todo Model', function() {
 		// Create instance
-		it('should be able to create object instance', function() {
+		it('should be able to create object', function() {
 			expect(todo).toBeDefined();
+		});
+
+		it('should be able to create object instance', function() {
+			expect(todo instanceof TodoModel).toBeTruthy();
 		});
 
 		// Test toggle done status
