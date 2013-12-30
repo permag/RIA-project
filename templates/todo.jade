@@ -1,16 +1,20 @@
 
-h1 #{header}
-i #{date}
-p #{description}
-if done
-	p 
-		button#click_toggle.btn.btn-lg.active Completed
+if !id 
+	h1 Not found
+	p The todo you're looking for does not want to be find. :(
 else
-	p
-		button#click_toggle.btn-lg.btn-primary Active
+	h1 #{header}
+	i #{date}
+	p #{description}
+	if done
+		p 
+			button#click_toggle.btn.btn-lg.active Completed
+	else
+		p
+			button#click_toggle.btn-lg.btn-primary Active
 
 
-button.btn.btn-xs
-	a(href='#{url}/edit') Edit
-span 
-button#click_remove.btn.btn-danger.btn-xs Remove
+	button.btn.btn-xs
+		a(href='#{url}/edit') Edit
+	span 
+	button#click_remove.btn.btn-danger.btn-xs Remove
