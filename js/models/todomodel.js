@@ -42,8 +42,8 @@ define(['backbone'], function(Backbone) {
 		createDate: function() {
 			var date = new Date();
 			var yeah = date.getFullYear();
-			var month = date.getMonth()+1;
-			var day = date.getDate();
+			var month = ''+date.getMonth()+1;  // Fix zero
+			var day = (date.getDate() < 10 ? '0': '') + date.getDate();
 			var hour = date.getHours();
 			var minute = (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
 			var full = yeah + '-' + month + '-' + day + ' ' + hour + ':' + minute;
