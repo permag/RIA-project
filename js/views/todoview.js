@@ -22,7 +22,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 				this.todo = o.todos.get(this.todoId);
 
 				this.todo.on('change:done', this.render, this);
-				this.todo.on('remove', function(){
+				this.todo.on('remove', function() {
 					window.location.href = '#/todos';
 				});
 
@@ -56,8 +56,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 		remove: function(e) {
 			e.preventDefault();
 			if (confirm('Sure u wanna delete this?')) {
-				this.todoColl.remove(this.todo);
-				localStorage.removeItem('todo-store-' + this.todo.id)
+				this.todo.destroy();
 			}
 		}
 	});
