@@ -1,5 +1,5 @@
 
-if !id 
+if !id
 	h1 Not found
 	p The todo you're looking for does not want to be found. :(
 else
@@ -7,14 +7,14 @@ else
 	i #{date}
 	p #{description}
 	if done
-		p 
+		p
 			button#click_toggle.btn.btn-lg.active Completed
 	else
 		p
 			button#click_toggle.btn-lg.btn-primary Active
 
 
-	button.btn.btn-xs
+	button#click_edit.btn.btn-xs
 		a(href='#{url}/edit') Edit
-	span 
+	span
 	button#click_remove.btn.btn-danger.btn-xs Remove

@@ -1,7 +1,7 @@
 console.log("LOADING addtodoview.js");
 
 define(['backbone', 'jquery', 'underscore', 'jade!templates/editform',
-		'js/models/todomodel', 'js/collections/todocollection'], 
+		'js/models/todomodel', 'js/collections/todocollection'],
 	function(Backbone, $, _, template, TodoModel, TodoColl) {
 	return Backbone.View.extend({
 		// Jade template
