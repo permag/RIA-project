@@ -1,6 +1,6 @@
 console.log("LOADING mainview.js");
 
-define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js'], 
+define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js'],
 	function(Backbone, $, _, template) {
 	return Backbone.View.extend({
 		template: template,
@@ -32,7 +32,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js
 				var route = Backbone.history.fragment;
 
 				// If not on #/new page
-				if (route !== 'new') {
+				if (route !== 'new' && !route.match('edit')) {
+
 					// Press "n" for new todo
 					if (e.keyCode === 78) {
 						window.location.hash = '#/new';
@@ -48,7 +49,7 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/main', 'bootstrap-js
 				}
 
 				// If on #/todo/{id}
-				if (route.substring(0, 4) === 'todo' && 
+				if (route.substring(0, 4) === 'todo' &&
 					route !== 'todo' &&
 					route !== 'todos' &&
 					route !== 'todos/completed') {

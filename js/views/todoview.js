@@ -1,6 +1,6 @@
 console.log("LOADING todoview.js");
 
-define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'], 
+define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 	function(Backbone, $, _, template) {
 	return Backbone.View.extend({
 		template: template,
@@ -8,7 +8,8 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 		// Events for toggling the todo done status, and remove button.
 		events: {
 			'click #click_toggle': 'toggle',
-			'click #click_remove': 'remove'
+			'click #click_remove': 'remove',
+			'click #click_edit': 'edit'
 		},
 
 		// Get the todo from collection and call render function.
@@ -45,11 +46,16 @@ define(['backbone', 'jquery', 'underscore', 'jade!templates/todo'],
 			return this;
 		},
 
-		// Toggle done status, triggered by event. Calls model function to save model 
+		// Toggle done status, triggered by event. Calls model function to save model
 		// changes in collection.
 		toggle: function(e) {
 			e.preventDefault();
 			this.todoColl.get(this.todoId).toggle();
+		},
+
+		edit: function(e) {
+			e.preventDefault();
+			window.location.href = '#/todo/'+this.todo.get('id')+'/edit';
 		},
 
 		// Remove function is triggered by event.
